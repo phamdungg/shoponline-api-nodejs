@@ -1,16 +1,17 @@
 const express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var { db_connect } = require ('./config/db.config');
+
+
+//connect db
+db_connect();
+
 const port = 3000
-const bodyParser = require('body-parser');
-const AccountModel = require('./Models/account');
-
-
-const app = express();
-
-
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json()) 
 
-var accountRouter = require('./routers/account')
+var accountRouter = require('./routers/account.router')
 app.use('/api/account', accountRouter)
 
 var danhmucRouter = require('./routers/danhmuc')

@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/dangnhap', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 const Schema = mongoose.Schema;
  
 const accounSchema = new Schema({
@@ -13,7 +8,6 @@ const accounSchema = new Schema({
 },{
     collection: 'account'
 });
-
 
 const AccountModel = mongoose.model('account', accounSchema)
 module.exports = AccountModel

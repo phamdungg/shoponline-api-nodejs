@@ -1,17 +1,19 @@
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/dangnhap', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 const Schema = mongoose.Schema;
- 
+
 const danhmucSchema = new Schema({
-  tendanhmuc: String,
-  mota: String
+  tendanhmuc: {
+    type: String,
+    require: true,
+    unique:true
+  },
+  mota: {
+    type: String,
+    require: true
+  }
 },{
-    collection: 'danhmuc'
+    collection: 'danhmuc',
+    versionKey: false // tat su dung truong __v
 });
 
 
